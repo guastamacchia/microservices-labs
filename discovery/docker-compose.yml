@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+
+  consumer:
+    container_name: consumer
+    image: ibm-cloud-academy/consumer:v1
+    restart: always
+    ports:
+      - "8083:8080"
+    networks:
+      - back-tier
+
+  producer:
+    container_name: producer
+    image: ibm-cloud-academy/producer:v1
+    restart: always
+    networks:
+      - back-tier
+
+networks:
+  back-tier:
