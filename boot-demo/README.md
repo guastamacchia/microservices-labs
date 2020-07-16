@@ -1,0 +1,3 @@
+- .\mvnw clean compile package
+- docker build -t ibm-cloud-academy/boot-demo:v1 .
+- docker run -d --name boot-demo -p 8081:8080 ibm-cloud-academy/boot-demo:v1
