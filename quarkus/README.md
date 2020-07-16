@@ -1,0 +1,4 @@
+- mvn io.quarkus:quarkus-maven-plugin:1.6.0.Final:create -DprojectGroupId="com.ibm.cloud.academy" -DprojectArtifactId="quarkus-demo" -DprojectVersion="1.0" -DclassName="com.ibm.cloud.academy.MainResource"
+- ./mvnw clean compile package
+- docker build -f src/main/docker/Dockerfile.jvm -t ibm-cloud-academy/quarkus-demo:v1 .
+- docker run -d --name quarkus-demo -p 8084:8080 ibm-cloud-academy/quarkus-demo:v1
