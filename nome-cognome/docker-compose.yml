@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+
+  persona:
+    container_name: persona
+    image: ibm-cloud-academy/persona:v1
+    restart: always
+    ports:
+      - "8087:8080"
+    networks:
+      - back-tier
+
+  nome:
+    container_name: nome
+    image: ibm-cloud-academy/nome:v1
+    restart: always
+    networks:
+      - back-tier
+
+  cognome:
+    container_name: cognome
+    image: ibm-cloud-academy/cognome:v1
+    restart: always
+    networks:
+      - back-tier
+
+networks:
+  back-tier:

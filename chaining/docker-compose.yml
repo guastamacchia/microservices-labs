@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+
+  service-a:
+    container_name: service-a
+    image: ibm-cloud-academy/service-a:v1
+    restart: always
+    ports:
+      - "8085:8080"
+    networks:
+      - back-tier
+
+  service-b:
+    container_name: service-b
+    image: ibm-cloud-academy/service-b:v1
+    restart: always
+    networks:
+      - back-tier
+
+  service-c:
+    container_name: service-c
+    image: ibm-cloud-academy/service-c:v1
+    restart: always
+    networks:
+      - back-tier
+      
+  service-d:
+    container_name: service-d
+    image: ibm-cloud-academy/service-d:v1
+    restart: always
+    networks:
+      - back-tier
+      
+networks:
+  back-tier:
