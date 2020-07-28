@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: op-generator-service
+
+server:
+  port: 0
+
+operators: +, -, *, /
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka/
+
+ribbon:
+  eager-load:
+    enabled: true
+  eureka:
+    enabled: true
