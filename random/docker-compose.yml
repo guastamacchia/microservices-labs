@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+
+  api-gateway:
+    container_name: api-gateway
+    image: ibm-cloud-academy/api-gateway:v1
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - back-tier
+
+  service-registry:
+    container_name: service-registry
+    image: ibm-cloud-academy/service-registry:v1
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - back-tier
+
+  hystrix-dashboard:
+    container_name: hystrix-dashboard
+    image: ibm-cloud-academy/hystrix-dashboard:v1
+    restart: always
+    ports:
+      - "7979:7979"
+    networks:
+      - back-tier
+
+  calculator-service:
+    image: ibm-cloud-academy/calculator-service:v1
+    restart: always
+    networks:
+      - back-tier 
+
+  num-generator-service:
+    image: ibm-cloud-academy/num-generator-service:v1
+    restart: always
+    networks:
+      - back-tier 
+
+  op-generator-service:
+    image: ibm-cloud-academy/op-generator-service:v1
+    restart: always
+    networks:
+      - back-tier 
+
+networks:
+  back-tier:
