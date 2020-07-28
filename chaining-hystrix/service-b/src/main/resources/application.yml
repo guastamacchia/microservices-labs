@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: service-b
+
+server:
+  port: 0
+
+serviceUrl: http://service-c
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-registry:8761/eureka/
+
+ribbon:
+  eureka:
+    enabled: true
+  eager-load:
+    enabled: true
+
+management:
+  endpoints:
+    # enable or disable all endpoints by default.
+    enabled-by-default: true
+    web:
+      exposure:
+        include: hystrix.stream, info, health

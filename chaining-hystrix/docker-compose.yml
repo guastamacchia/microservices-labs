@@ -1,0 +1,57 @@
+version: '3.7'
+
+services:
+
+  service-a:
+    image: ibm-cloud-academy/service-a:v2
+    restart: always
+    networks:
+      - back-tier
+
+  service-b:
+    image: ibm-cloud-academy/service-b:v2
+    restart: always
+    networks:
+      - back-tier
+
+  service-c:
+    image: ibm-cloud-academy/service-c:v2
+    restart: always
+    networks:
+      - back-tier
+      
+  service-d:
+    image: ibm-cloud-academy/service-d:v2
+    restart: always
+    networks:
+      - back-tier
+
+  api-gateway:
+    container_name: api-gateway
+    image: ibm-cloud-academy/api-gateway:v2
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - back-tier
+
+  service-registry:
+    container_name: service-registry
+    image: ibm-cloud-academy/service-registry:v2
+    restart: always
+    ports:
+      - "8761:8761"
+    networks:
+      - back-tier
+
+  hystrix-dashboard:
+    container_name: hystrix-dashboard
+    image: ibm-cloud-academy/hystrix-dashboard:v2
+    restart: always
+    ports:
+      - "7979:7979"
+    networks:
+      - back-tier
+  
+networks:
+  back-tier:
