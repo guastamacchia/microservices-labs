@@ -1,0 +1,22 @@
+server:
+  port: 7979 # server HTTP port.
+
+spring:
+  application:
+    name: hystrix-dashboard
+
+eureka:
+  client:
+    service-url:
+      #	map of availability zone to list of fully qualified URLs to communicate with eureka server
+      defaultZone: http://service-registry:8761/eureka/
+
+turbine:
+  app-config: service-a,service-b,service-c
+  clusterNameExpression: new String("default")
+
+ribbon:
+  eager-load:
+    enabled: true
+  eureka:
+    enabled: true
