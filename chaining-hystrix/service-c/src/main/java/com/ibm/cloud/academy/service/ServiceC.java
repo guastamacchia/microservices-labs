@@ -2,5 +2,5 @@ package com.ibm.cloud.academy.service;
 
 public interface ServiceC {
 	
-	public String callC();
+	public String callD();
 }

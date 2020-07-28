@@ -1,6 +1,6 @@
 package com.ibm.cloud.academy.service.impl;
 
-
+import com.ibm.cloud.academy.service.ServiceB;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.Objects;
 
 @Service
-public class ServiceBImpl implements com.ibm.cloud.academy.service.ServiceB {
+public class ServiceBImpl implements ServiceB {
 
 	@Value("${serviceUrl}")
 	String serviceUrl;
@@ -21,7 +21,7 @@ public class ServiceBImpl implements com.ibm.cloud.academy.service.ServiceB {
 	}
 
 	@HystrixCommand( fallbackMethod = "defaultCall" )
-	public String callB() {
+	public String callC() {
 		return Objects.requireNonNull(rest.getForEntity(serviceUrl, String.class).getBody());
 	}
 

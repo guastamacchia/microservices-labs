@@ -17,7 +17,7 @@ public class Controller {
 
 	@RequestMapping(value = "/", produces = "text/plain")
 	public String indexB() {
-        String call = service.callB();
+        String call = service.callC();
 		return "Cloud" + " (" + hostname + ") " + call;
 	}
 
